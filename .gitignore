@@ -3,3 +3,6 @@
 
 # Ignore the virtual env
 honors-env/
+
+# Ignore my twitter credentials
+twitter_credentials.json
