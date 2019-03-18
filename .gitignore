@@ -5,4 +5,4 @@
 honors-env/
 
 # Ignore my twitter credentials
-twitter-search/twitter_credentials.json
+data/twitter_credentials.json
