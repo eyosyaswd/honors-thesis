@@ -17,3 +17,12 @@ Steps for preprocessing:
 2. Implement stemming
 3. Remove stopwords
 """
+
+import pandas as pdZ
+
+
+if __name__ == "__main__":
+
+    tweets_df = pd.read_csv("../data/labelled-dataset/100-example-labelled-tweets.csv")
+
+    print(tweets_df.head())
