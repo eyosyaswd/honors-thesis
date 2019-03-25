@@ -24,9 +24,6 @@ import re
 
 def preprocess_tweet(tweet):
 
-    # convert all text to lowercase
-    tweet = tweet.lower()
-
     # replace URLs with the word URL
     tweet = re.sub(r'((www\.[\S]+)|(https?://[\S]+))', ' URL ', tweet)
 
@@ -35,6 +32,9 @@ def preprocess_tweet(tweet):
 
     # replace @handle with the word USER_MENTION
     tweet = re.sub(r'@[\S]+', 'USER_MENTION', tweet)
+
+    # convert all text to lowercase
+    tweet = tweet.lower()
 
     return tweet
 
@@ -48,6 +48,7 @@ def preprocess_df(tweets_df):
 if __name__ == "__main__":
 
     tweets_df = pd.read_csv("../data/labelled-dataset/100-example-labelled-tweets.csv")
-    print(tweets_df.head())
+    print(tweets_df.head(10))
     preprocess_df(tweets_df)
-    print(tweets_df.head())
+    print(tweets_df.head(10))
+    tweets_df.to_csv("../data/labelled-dataset/preprocessed-tweets.csv", index=False)
