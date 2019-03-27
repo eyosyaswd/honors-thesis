@@ -6,3 +6,6 @@ honors-env/
 
 # Ignore my twitter credentials
 data/twitter_credentials.json
+
+# Ignore __pychache__
+__pycache__/

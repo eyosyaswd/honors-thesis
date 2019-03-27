@@ -1,5 +1,6 @@
 I collected tweets using the GetOldTweets3 and the following command in terminal:
 
-GetOldTweets3 --querysearch "Leicester City" --maxtweets 100 --since 2015-08-05 --until 2015-08-06 --lang en
+Negative Tweets:
+GetOldTweets3 --querysearch "Leicester City" --maxtweets 250 --since 2019-02-022 --until 2019-02-23 --lang en
 
 This will output a csv file with the tweets.
