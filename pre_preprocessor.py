@@ -9,7 +9,7 @@ import pandas as pd
 
 
 # convert csv to a pandas dataframe
-tweets_df = pd.read_csv("data/raw-dataset/100-example-tweets.csv")
+tweets_df = pd.read_csv("data/raw-dataset/training-dataset/SWA_2-0_LEI_neg.csv")
 
 # drop unnecessary columns
 tweets_df = tweets_df.drop(labels=["to", "replies", "retweets", "favorites", "geo", "mentions", "hashtags", "permalink"], axis=1)
@@ -20,4 +20,4 @@ tweets_df["polarity"] = ""
 # reorder columns
 tweets_df = tweets_df.reindex(columns=["date", "id", "username", "polarity", "text"])
 
-tweets_df.to_csv("data/labelled-dataset/100-example-labelled-tweets.csv", index=False)
+tweets_df.to_csv("data/labelled-dataset/training-dataset/SWA_2-0_LEI_neg.csv", index=False)
