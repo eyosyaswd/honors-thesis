@@ -13,3 +13,7 @@ __pycache__/
 # jupyter related folders and files
 *.ipynb
 .ipynb_checkpoints
+
+# random extra files
+testing_preprocessing.csv
+tutorial.py
