@@ -41,7 +41,6 @@ def preprocess_word(word):
 
 
 def preprocess_tweet(tweet):
-
     # replace URLs with the word URL
     tweet = re.sub(r'((www\.[\S]+)|(https?://[\S]+))', 'URL', tweet)
 
@@ -57,7 +56,7 @@ def preprocess_tweet(tweet):
     # replace multiple spaces with a single space
     tweet = re.sub(r'\s+', ' ', tweet)
 
-    # 
+    #
     tweet = tweet.strip('\'"')
 
     tweet_as_list = tweet.split()

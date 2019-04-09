@@ -1,11 +1,15 @@
-# gitignore file
+# Files to ignore
 
 
-# Ignore the virtual env
+# virtual env
 honors-env/
 
-# Ignore my twitter credentials
+# my twitter credentials
 trash/twitter_credentials.json
 
-# Ignore __pychache__
+# __pychache__
 __pycache__/
+
+# jupyter related folders and files
+*.ipynb
+.ipynb_checkpoints
