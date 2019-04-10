@@ -6,7 +6,7 @@ Main script that will conduct preprocessing, training, classification, and predi
 from sklearn.model_selection import train_test_split
 import pandas as pd
 import preprocessor
-import classifier
+import trainer
 
 
 def debug(some_str):
@@ -45,7 +45,8 @@ def main():
 	print("\nNumber of training data:", len(x_train),"\nNumber of testing data:", len(x_test))
 
 	# create a classifier and train it using the dataset
-	classifier.train(x_train, y_train, x_test, y_test)
+	trainer.train(x_train, y_train, x_test, y_test)
+
 
 if __name__ == '__main__':
 	main()
