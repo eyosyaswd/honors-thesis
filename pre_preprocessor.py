@@ -20,4 +20,4 @@ tweets_df["polarity"] = ""
 # reorder columns
 tweets_df = tweets_df.reindex(columns=["date", "id", "username", "polarity", "text"])
 
-tweets_df.to_csv("data-set/labelled-data-set/labelled-data-set/analysis-data-set-raw.csv", index=False)
+tweets_df.to_csv("data-set/raw-data-set/analysis-data-set/analysis-data-set-raw-pre.csv", index=False)

@@ -2,13 +2,18 @@
 Script that classifies new data.
 """
 
+import pandas as pd
 import pickle
 import preprocessor
 
 
 
-def classify():
-	pass
+def classify(model, tweets_df, original_tweets):
+	print("\nCLASSIFYING...")
+	tweets = tweets_df["text"].tolist()
+	tweets_df["polarity"] = model.predict(tweets)
+	tweets_df["text"] = original_tweets
+	tweets_df.to_csv("data-set/labelled-data-set/analysis-data-set/analysis-data-set-labelled.csv", index=False)
 
 
 def unpickle_model():
@@ -21,15 +26,18 @@ def unpickle_model():
 
 def main():
 	# read csv and covert it to a pandas dataframe
-	tweets_df = pd.read_csv("data-set/raw-data-set/analysis-data-set/analysis-data-set-raw.csv")
+	tweets_df = pd.read_csv("data-set/raw-data-set/analysis-data-set/analysis-data-set-raw-pre.csv")
+
+	original_tweets = tweets_df["text"].tolist()
 
 	# conduct preprocessing
+	print("\nPREPROCESSING...")
 	preprocessor.preprocess_df(tweets_df)
 
 	# unpickle model
 	model = unpickle_model()
 
-	classify(tweets_df, model)
+	classify(model, tweets_df, original_tweets)
 
 
 
