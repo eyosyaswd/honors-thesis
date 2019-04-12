@@ -49,7 +49,8 @@ def main():
 
 	# create a classifier and train it using the dataset
 	# trainer.train(x_train, y_train, x_test, y_test)
-	trainer.create_model(x_train, y_train, x_test, y_test)
+	# trainer.create_model(x_train, y_train, x_test, y_test)
+	trainer.analyze_model(x_train, y_train, x_test, y_test)
 
 
 if __name__ == '__main__':

@@ -2,6 +2,9 @@
 Script that generates the classifier and does the training.
 """
 
+import itertools
+import numpy as np
+import matplotlib.pyplot as plt
 import pickle
 from sklearn import svm
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -9,6 +12,7 @@ from sklearn.feature_extraction import stop_words
 from sklearn.metrics import classification_report, confusion_matrix
 from sklearn.model_selection import KFold, cross_val_score, GridSearchCV
 from sklearn.pipeline import Pipeline
+
 
 
 def train(x_train, y_train, x_test, y_test):
@@ -149,6 +153,72 @@ def create_model(x_train, y_train, x_test, y_test):
 	print(confusion_matrix(y_true, y_pred))
 	print()
 	print()
+
+def analyze_model(x_train, y_train, x_test, y_test):
+	print("\nUNPICKLING MODEL...")
+	list_unpickle = open("final_model/trained_linear_svc.pkl", "rb")
+	model = pickle.load(list_unpickle)
+	list_unpickle.close()
+
+	print("Detaiiled classification report for final model:")
+	print("The model is trained on the full development set.")
+	print("The scores are computed on the full evaluation set.")
+	y_true, y_pred = y_test, model.predict(x_test)
+
+	print(model.score(x_test, y_test))
+	print(model.get_params)
+
+	print(classification_report(y_true, y_pred, target_names=["negative", "neutral", "positive"]))
+	print()
+
+	print("Confusion matrix for final model:")
+	print(confusion_matrix(y_true, y_pred))
+	cnf_matrix = confusion_matrix(y_test, y_pred)
+	np.set_printoptions(precision=2)
+	print()
+	print()
+
+	plt.figure()
+	plot_confusion_matrix(cnf_matrix, classes=['Negative','Neutral', 'Positive'],
+                      title='Confusion matrix, normalized')
+
+
+
+#Evaluation of Model - Confusion Matrix Plot
+def plot_confusion_matrix(cm, classes,
+                          normalize=True,
+                          title='Confusion matrix',
+                          cmap=plt.cm.Blues):
+    """
+    This function prints and plots the confusion matrix.
+    Normalization can be applied by setting `normalize=True`.
+    """
+    if normalize:
+        cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
+        print("Normalized confusion matrix")
+    else:
+        print('Confusion matrix, without normalization')
+
+    print(cm)
+
+    plt.imshow(cm, interpolation='nearest', cmap=cmap)
+    plt.title(title)
+    plt.colorbar()
+    tick_marks = np.arange(len(classes))
+    plt.xticks(tick_marks, classes, rotation=45)
+    plt.yticks(tick_marks, classes)
+
+    fmt = '.2f' if normalize else 'd'
+    thresh = cm.max() / 2.
+    for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
+        plt.text(j, i, format(cm[i, j], fmt),
+                 horizontalalignment="center",
+                 color="white" if cm[i, j] > thresh else "black")
+
+    plt.ylabel('True label')
+    plt.xlabel('Predicted label')
+    plt.tight_layout()
+    plt.show()
 
 
 
