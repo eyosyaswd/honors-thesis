@@ -1,0 +1,301 @@
+(honors-env) eyosyaswd@eyosyas-ubuntu:~/Documents/honors-thesis$ python main.py
+polarity
+-1    381
+ 0    385
+ 1    380
+dtype: int64
+
+Number of training data: 916
+Number of testing data: 230
+
+INITIALIZING CLASSIFIER...
+vectorizer params: {'analyzer': 'word', 'binary': False, 'decode_error': 'strict', 'dtype': <class 'numpy.float64'>, 'encoding': 'utf-8', 'input': 'content', 'lowercase': True, 'max_df': 1.0, 'max_features': None, 'min_df': 1, 'ngram_range': (1, 2), 'norm': 'l2', 'preprocessor': None, 'smooth_idf': True, 'stop_words': None, 'strip_accents': None, 'sublinear_tf': False, 'token_pattern': '(?u)\\b\\w\\w+\\b', 'tokenizer': None, 'use_idf': True, 'vocabulary': None}
+linear svc params {'C': 1.0, 'class_weight': None, 'dual': True, 'fit_intercept': True, 'intercept_scaling': 1, 'loss': 'squared_hinge', 'max_iter': 1000, 'multi_class': 'ovr', 'penalty': 'l2', 'random_state': None, 'tol': 0.0001, 'verbose': 0}
+
+PERFORMING GRID SEARCH WITH CROSS VALIDATION...
+# Tuning hyper-parameters for precision
+
+/home/eyosyaswd/Documents/honors-thesis/honors-env/lib/python3.6/site-packages/sklearn/metrics/classification.py:1143: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+/home/eyosyaswd/Documents/honors-thesis/honors-env/lib/python3.6/site-packages/sklearn/svm/base.py:931: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  "the number of iterations.", ConvergenceWarning)
+/home/eyosyaswd/Documents/honors-thesis/honors-env/lib/python3.6/site-packages/sklearn/model_selection/_search.py:841: DeprecationWarning: The default of the `iid` parameter will change from True to False in version 0.22 and will be removed in 0.24. This will change numeric results when test-set sizes are unequal.
+  DeprecationWarning)
+
+Best score and parameters set found on development set:
+Score: 0.7642939420538118 Params: {'linear_svc__C': 0.1, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+
+All grid scores on development set:
+0.475 (+/-0.473) for {'linear_svc__C': 0.001, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.475 (+/-0.473) for {'linear_svc__C': 0.001, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.738 (+/-0.148) for {'linear_svc__C': 0.001, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.737 (+/-0.145) for {'linear_svc__C': 0.001, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.636 (+/-0.284) for {'linear_svc__C': 0.001, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.636 (+/-0.284) for {'linear_svc__C': 0.001, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.737 (+/-0.144) for {'linear_svc__C': 0.001, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.737 (+/-0.144) for {'linear_svc__C': 0.001, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.757 (+/-0.119) for {'linear_svc__C': 0.01, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.757 (+/-0.119) for {'linear_svc__C': 0.01, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.737 (+/-0.146) for {'linear_svc__C': 0.01, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.738 (+/-0.147) for {'linear_svc__C': 0.01, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.754 (+/-0.115) for {'linear_svc__C': 0.01, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.754 (+/-0.115) for {'linear_svc__C': 0.01, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.736 (+/-0.146) for {'linear_svc__C': 0.01, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.734 (+/-0.143) for {'linear_svc__C': 0.01, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.750 (+/-0.133) for {'linear_svc__C': 0.1, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.750 (+/-0.133) for {'linear_svc__C': 0.1, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.748 (+/-0.152) for {'linear_svc__C': 0.1, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.747 (+/-0.154) for {'linear_svc__C': 0.1, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.764 (+/-0.117) for {'linear_svc__C': 0.1, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.764 (+/-0.117) for {'linear_svc__C': 0.1, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.748 (+/-0.152) for {'linear_svc__C': 0.1, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.748 (+/-0.152) for {'linear_svc__C': 0.1, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.756 (+/-0.127) for {'linear_svc__C': 1, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.756 (+/-0.127) for {'linear_svc__C': 1, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.751 (+/-0.136) for {'linear_svc__C': 1, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.751 (+/-0.136) for {'linear_svc__C': 1, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.754 (+/-0.144) for {'linear_svc__C': 1, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.754 (+/-0.144) for {'linear_svc__C': 1, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.751 (+/-0.136) for {'linear_svc__C': 1, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.751 (+/-0.136) for {'linear_svc__C': 1, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.741 (+/-0.125) for {'linear_svc__C': 10, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.741 (+/-0.125) for {'linear_svc__C': 10, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.747 (+/-0.129) for {'linear_svc__C': 10, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.747 (+/-0.129) for {'linear_svc__C': 10, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.753 (+/-0.121) for {'linear_svc__C': 10, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.753 (+/-0.121) for {'linear_svc__C': 10, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.747 (+/-0.129) for {'linear_svc__C': 10, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.747 (+/-0.129) for {'linear_svc__C': 10, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.741 (+/-0.125) for {'linear_svc__C': 100, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.741 (+/-0.125) for {'linear_svc__C': 100, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.747 (+/-0.129) for {'linear_svc__C': 100, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.747 (+/-0.129) for {'linear_svc__C': 100, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.748 (+/-0.113) for {'linear_svc__C': 100, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.746 (+/-0.110) for {'linear_svc__C': 100, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.747 (+/-0.129) for {'linear_svc__C': 100, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.747 (+/-0.129) for {'linear_svc__C': 100, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.749 (+/-0.124) for {'linear_svc__C': 1000, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.739 (+/-0.099) for {'linear_svc__C': 1000, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.747 (+/-0.129) for {'linear_svc__C': 1000, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.747 (+/-0.129) for {'linear_svc__C': 1000, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.747 (+/-0.122) for {'linear_svc__C': 1000, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.748 (+/-0.122) for {'linear_svc__C': 1000, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.747 (+/-0.129) for {'linear_svc__C': 1000, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.747 (+/-0.129) for {'linear_svc__C': 1000, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.110 (+/-0.048) for {'linear_svc__C': 0.001, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 0.0001}
+0.110 (+/-0.048) for {'linear_svc__C': 0.001, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 1e-05}
+0.636 (+/-0.284) for {'linear_svc__C': 0.001, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.636 (+/-0.284) for {'linear_svc__C': 0.001, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.738 (+/-0.145) for {'linear_svc__C': 0.001, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 0.0001}
+0.737 (+/-0.144) for {'linear_svc__C': 0.001, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 1e-05}
+0.738 (+/-0.143) for {'linear_svc__C': 0.001, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.737 (+/-0.148) for {'linear_svc__C': 0.001, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.099 (+/-0.031) for {'linear_svc__C': 0.01, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 0.0001}
+0.099 (+/-0.031) for {'linear_svc__C': 0.01, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 1e-05}
+0.754 (+/-0.115) for {'linear_svc__C': 0.01, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.754 (+/-0.115) for {'linear_svc__C': 0.01, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.735 (+/-0.144) for {'linear_svc__C': 0.01, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 0.0001}
+0.736 (+/-0.143) for {'linear_svc__C': 0.01, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 1e-05}
+0.736 (+/-0.143) for {'linear_svc__C': 0.01, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.736 (+/-0.146) for {'linear_svc__C': 0.01, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.627 (+/-0.131) for {'linear_svc__C': 0.1, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 0.0001}
+0.627 (+/-0.131) for {'linear_svc__C': 0.1, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 1e-05}
+0.764 (+/-0.117) for {'linear_svc__C': 0.1, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.764 (+/-0.117) for {'linear_svc__C': 0.1, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.747 (+/-0.154) for {'linear_svc__C': 0.1, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 0.0001}
+0.747 (+/-0.154) for {'linear_svc__C': 0.1, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 1e-05}
+0.746 (+/-0.155) for {'linear_svc__C': 0.1, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.746 (+/-0.155) for {'linear_svc__C': 0.1, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.724 (+/-0.126) for {'linear_svc__C': 1, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 0.0001}
+0.723 (+/-0.124) for {'linear_svc__C': 1, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 1e-05}
+0.754 (+/-0.144) for {'linear_svc__C': 1, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.754 (+/-0.144) for {'linear_svc__C': 1, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.751 (+/-0.136) for {'linear_svc__C': 1, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 0.0001}
+0.751 (+/-0.136) for {'linear_svc__C': 1, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 1e-05}
+0.751 (+/-0.136) for {'linear_svc__C': 1, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.751 (+/-0.136) for {'linear_svc__C': 1, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.714 (+/-0.123) for {'linear_svc__C': 10, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 0.0001}
+0.716 (+/-0.148) for {'linear_svc__C': 10, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 1e-05}
+0.753 (+/-0.121) for {'linear_svc__C': 10, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.753 (+/-0.121) for {'linear_svc__C': 10, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.747 (+/-0.129) for {'linear_svc__C': 10, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 0.0001}
+0.747 (+/-0.129) for {'linear_svc__C': 10, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 1e-05}
+0.747 (+/-0.129) for {'linear_svc__C': 10, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.747 (+/-0.129) for {'linear_svc__C': 10, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.720 (+/-0.124) for {'linear_svc__C': 100, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 0.0001}
+0.726 (+/-0.149) for {'linear_svc__C': 100, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 1e-05}
+0.750 (+/-0.112) for {'linear_svc__C': 100, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.749 (+/-0.112) for {'linear_svc__C': 100, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.747 (+/-0.129) for {'linear_svc__C': 100, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 0.0001}
+0.747 (+/-0.129) for {'linear_svc__C': 100, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 1e-05}
+0.747 (+/-0.129) for {'linear_svc__C': 100, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.747 (+/-0.129) for {'linear_svc__C': 100, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.743 (+/-0.109) for {'linear_svc__C': 1000, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 0.0001}
+0.734 (+/-0.122) for {'linear_svc__C': 1000, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 1e-05}
+0.748 (+/-0.115) for {'linear_svc__C': 1000, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.745 (+/-0.109) for {'linear_svc__C': 1000, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.747 (+/-0.129) for {'linear_svc__C': 1000, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 0.0001}
+0.747 (+/-0.129) for {'linear_svc__C': 1000, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 1e-05}
+0.747 (+/-0.129) for {'linear_svc__C': 1000, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.747 (+/-0.129) for {'linear_svc__C': 1000, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+
+Detaiiled classification report:
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+              precision    recall  f1-score   support
+
+    negative       0.66      0.87      0.75        78
+     neutral       0.79      0.64      0.71        76
+    positive       0.82      0.70      0.75        76
+
+   micro avg       0.74      0.74      0.74       230
+   macro avg       0.76      0.74      0.74       230
+weighted avg       0.75      0.74      0.74       230
+
+
+Confusion matrix:
+[[68  6  4]
+ [19 49  8]
+ [16  7 53]]
+
+
+# Tuning hyper-parameters for recall
+
+/home/eyosyaswd/Documents/honors-thesis/honors-env/lib/python3.6/site-packages/sklearn/model_selection/_search.py:841: DeprecationWarning: The default of the `iid` parameter will change from True to False in version 0.22 and will be removed in 0.24. This will change numeric results when test-set sizes are unequal.
+  DeprecationWarning)
+
+Best score and parameters set found on development set:
+Score: 0.7530957522090815 Params: {'linear_svc__C': 1, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+
+All grid scores on development set:
+0.453 (+/-0.240) for {'linear_svc__C': 0.001, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.453 (+/-0.240) for {'linear_svc__C': 0.001, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.723 (+/-0.166) for {'linear_svc__C': 0.001, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.721 (+/-0.169) for {'linear_svc__C': 0.001, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.590 (+/-0.225) for {'linear_svc__C': 0.001, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.590 (+/-0.225) for {'linear_svc__C': 0.001, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.723 (+/-0.166) for {'linear_svc__C': 0.001, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.721 (+/-0.169) for {'linear_svc__C': 0.001, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.739 (+/-0.154) for {'linear_svc__C': 0.01, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.739 (+/-0.154) for {'linear_svc__C': 0.01, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.721 (+/-0.170) for {'linear_svc__C': 0.01, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.722 (+/-0.170) for {'linear_svc__C': 0.01, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.741 (+/-0.134) for {'linear_svc__C': 0.01, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.741 (+/-0.134) for {'linear_svc__C': 0.01, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.722 (+/-0.169) for {'linear_svc__C': 0.01, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.723 (+/-0.168) for {'linear_svc__C': 0.01, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.739 (+/-0.166) for {'linear_svc__C': 0.1, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.739 (+/-0.166) for {'linear_svc__C': 0.1, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.740 (+/-0.173) for {'linear_svc__C': 0.1, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.741 (+/-0.177) for {'linear_svc__C': 0.1, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.747 (+/-0.143) for {'linear_svc__C': 0.1, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.747 (+/-0.143) for {'linear_svc__C': 0.1, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.739 (+/-0.171) for {'linear_svc__C': 0.1, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.740 (+/-0.175) for {'linear_svc__C': 0.1, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.753 (+/-0.151) for {'linear_svc__C': 1, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.753 (+/-0.151) for {'linear_svc__C': 1, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.745 (+/-0.173) for {'linear_svc__C': 1, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.745 (+/-0.173) for {'linear_svc__C': 1, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.753 (+/-0.165) for {'linear_svc__C': 1, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.753 (+/-0.165) for {'linear_svc__C': 1, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.745 (+/-0.173) for {'linear_svc__C': 1, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.745 (+/-0.173) for {'linear_svc__C': 1, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.738 (+/-0.159) for {'linear_svc__C': 10, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.738 (+/-0.159) for {'linear_svc__C': 10, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.739 (+/-0.164) for {'linear_svc__C': 10, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.739 (+/-0.164) for {'linear_svc__C': 10, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.739 (+/-0.165) for {'linear_svc__C': 10, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.739 (+/-0.165) for {'linear_svc__C': 10, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.739 (+/-0.164) for {'linear_svc__C': 10, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.739 (+/-0.164) for {'linear_svc__C': 10, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.738 (+/-0.159) for {'linear_svc__C': 100, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.738 (+/-0.159) for {'linear_svc__C': 100, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.739 (+/-0.164) for {'linear_svc__C': 100, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.739 (+/-0.164) for {'linear_svc__C': 100, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.736 (+/-0.162) for {'linear_svc__C': 100, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.737 (+/-0.163) for {'linear_svc__C': 100, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.739 (+/-0.164) for {'linear_svc__C': 100, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.739 (+/-0.164) for {'linear_svc__C': 100, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.733 (+/-0.146) for {'linear_svc__C': 1000, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.745 (+/-0.149) for {'linear_svc__C': 1000, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.739 (+/-0.164) for {'linear_svc__C': 1000, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.739 (+/-0.164) for {'linear_svc__C': 1000, 'linear_svc__dual': True, 'linear_svc__loss': 'hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.735 (+/-0.166) for {'linear_svc__C': 1000, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.737 (+/-0.159) for {'linear_svc__C': 1000, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.739 (+/-0.164) for {'linear_svc__C': 1000, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.739 (+/-0.164) for {'linear_svc__C': 1000, 'linear_svc__dual': True, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.333 (+/-0.000) for {'linear_svc__C': 0.001, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 0.0001}
+0.333 (+/-0.000) for {'linear_svc__C': 0.001, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 1e-05}
+0.590 (+/-0.225) for {'linear_svc__C': 0.001, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.590 (+/-0.225) for {'linear_svc__C': 0.001, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.722 (+/-0.166) for {'linear_svc__C': 0.001, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 0.0001}
+0.724 (+/-0.168) for {'linear_svc__C': 0.001, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 1e-05}
+0.723 (+/-0.169) for {'linear_svc__C': 0.001, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.722 (+/-0.166) for {'linear_svc__C': 0.001, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.333 (+/-0.000) for {'linear_svc__C': 0.01, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 0.0001}
+0.333 (+/-0.000) for {'linear_svc__C': 0.01, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 1e-05}
+0.741 (+/-0.134) for {'linear_svc__C': 0.01, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.741 (+/-0.134) for {'linear_svc__C': 0.01, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.721 (+/-0.170) for {'linear_svc__C': 0.01, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 0.0001}
+0.721 (+/-0.169) for {'linear_svc__C': 0.01, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 1e-05}
+0.723 (+/-0.167) for {'linear_svc__C': 0.01, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.722 (+/-0.166) for {'linear_svc__C': 0.01, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.597 (+/-0.193) for {'linear_svc__C': 0.1, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 0.0001}
+0.597 (+/-0.193) for {'linear_svc__C': 0.1, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 1e-05}
+0.747 (+/-0.143) for {'linear_svc__C': 0.1, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.747 (+/-0.143) for {'linear_svc__C': 0.1, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.741 (+/-0.177) for {'linear_svc__C': 0.1, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 0.0001}
+0.737 (+/-0.172) for {'linear_svc__C': 0.1, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 1e-05}
+0.740 (+/-0.177) for {'linear_svc__C': 0.1, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.739 (+/-0.173) for {'linear_svc__C': 0.1, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.705 (+/-0.108) for {'linear_svc__C': 1, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 0.0001}
+0.707 (+/-0.111) for {'linear_svc__C': 1, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 1e-05}
+0.753 (+/-0.165) for {'linear_svc__C': 1, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.753 (+/-0.165) for {'linear_svc__C': 1, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.745 (+/-0.173) for {'linear_svc__C': 1, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 0.0001}
+0.745 (+/-0.173) for {'linear_svc__C': 1, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 1e-05}
+0.745 (+/-0.173) for {'linear_svc__C': 1, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.745 (+/-0.173) for {'linear_svc__C': 1, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.694 (+/-0.137) for {'linear_svc__C': 10, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 0.0001}
+0.696 (+/-0.125) for {'linear_svc__C': 10, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 1e-05}
+0.739 (+/-0.165) for {'linear_svc__C': 10, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.739 (+/-0.165) for {'linear_svc__C': 10, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.739 (+/-0.164) for {'linear_svc__C': 10, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 0.0001}
+0.739 (+/-0.164) for {'linear_svc__C': 10, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 1e-05}
+0.739 (+/-0.164) for {'linear_svc__C': 10, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.739 (+/-0.164) for {'linear_svc__C': 10, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.725 (+/-0.123) for {'linear_svc__C': 100, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 0.0001}
+0.713 (+/-0.119) for {'linear_svc__C': 100, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 1e-05}
+0.740 (+/-0.166) for {'linear_svc__C': 100, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.739 (+/-0.164) for {'linear_svc__C': 100, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.739 (+/-0.164) for {'linear_svc__C': 100, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 0.0001}
+0.739 (+/-0.164) for {'linear_svc__C': 100, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 1e-05}
+0.739 (+/-0.164) for {'linear_svc__C': 100, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.739 (+/-0.164) for {'linear_svc__C': 100, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.716 (+/-0.103) for {'linear_svc__C': 1000, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 0.0001}
+0.730 (+/-0.134) for {'linear_svc__C': 1000, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 1e-05}
+0.736 (+/-0.169) for {'linear_svc__C': 1000, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.740 (+/-0.166) for {'linear_svc__C': 1000, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'ovr', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+0.739 (+/-0.164) for {'linear_svc__C': 1000, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 0.0001}
+0.739 (+/-0.164) for {'linear_svc__C': 1000, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l1', 'linear_svc__tol': 1e-05}
+0.739 (+/-0.164) for {'linear_svc__C': 1000, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 0.0001}
+0.739 (+/-0.164) for {'linear_svc__C': 1000, 'linear_svc__dual': False, 'linear_svc__loss': 'squared_hinge', 'linear_svc__multi_class': 'crammer_singer', 'linear_svc__penalty': 'l2', 'linear_svc__tol': 1e-05}
+
+Detaiiled classification report:
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+              precision    recall  f1-score   support
+
+    negative       0.68      0.79      0.73        78
+     neutral       0.78      0.71      0.74        76
+    positive       0.80      0.74      0.77        76
+
+   micro avg       0.75      0.75      0.75       230
+   macro avg       0.75      0.75      0.75       230
+weighted avg       0.75      0.75      0.75       230
+
+
+Confusion matrix:
+[[62 10  6]
+ [14 54  8]
+ [15  5 56]]

@@ -5,6 +5,7 @@ Script that generates the classifier and does the training.
 import pickle
 from sklearn import svm
 from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.feature_extraction import stop_words
 from sklearn.metrics import classification_report, confusion_matrix
 from sklearn.model_selection import KFold, cross_val_score, GridSearchCV
 from sklearn.pipeline import Pipeline
@@ -15,7 +16,8 @@ def train(x_train, y_train, x_test, y_test):
 	######################## INIT ###################################
 	print("\nINITIALIZING CLASSIFIER...")
 
-	vectorizer = TfidfVectorizer(ngram_range=(1,2))
+	# vectorizer = TfidfVectorizer(ngram_range=(1,2))
+	vectorizer = TfidfVectorizer()
 	print("vectorizer params:", vectorizer.get_params())
 
 	linear_svc = svm.LinearSVC()
@@ -27,22 +29,57 @@ def train(x_train, y_train, x_test, y_test):
 	################### CROSS VAL and GRID SEARCH ####################
 	print("\nPERFORMING GRID SEARCH WITH CROSS VALIDATION...")
 	k_fold = KFold(n_splits=20, shuffle=True, random_state=1)
+	# k_fold = KFold(n_splits=5, shuffle=True)
 	linear_svc_params = [
-		{
-			"linear_svc__C":[0.001, 0.01, 0.1, 1, 10, 100, 1000],
+		{	# Dual optimization
+			"linear_svc__penalty": ["l2"],		# if l1, you can't use hinge
 			"linear_svc__loss": ["hinge", "squared_hinge"],
-			"linear_svc__tol": [1e-4, 1e-5]
+			"linear_svc__dual": [True],	# if false, you can't use l2 or hinge
+			# "linear_svc__tol": [1e-4, 1e-5],
+			# "linear_svc__C":[0.001, 0.01, 0.1, 1, 10, 100, 1000],
+			"linear_svc__C":[0.1, 1],
+			# "linear_svc__multi_class": ["ovr", "crammer_singer"],
+			# "vectorizer__stop_words": [None, stop_words.ENGLISH_STOP_WORDS],
+			"vectorizer__ngram_range": [(1,2), (1,3)],
+			"vectorizer__max_df": [0.9, 1.0],
+			# "vectorizer__use_idf": [True, False]
+		},
+		{	# Primal Optimization
+			"linear_svc__penalty": ["l1", "l2"],
+			"linear_svc__loss": ["squared_hinge"],
+			"linear_svc__dual": [False],
+			# "linear_svc__tol": [1e-4, 1e-5],
+			# "linear_svc__C":[0.001, 0.01, 0.1, 1, 10, 100, 1000],
+			"linear_svc__C":[0.1, 1],
+			# "linear_svc__multi_class": ["ovr", "crammer_singer"],
+			# "vectorizer__stop_words": [None, stop_words.ENGLISH_STOP_WORDS],
+			"vectorizer__ngram_range": [(1,2), (1,3)],
+			"vectorizer__max_df": [0.9, 1.0],
+			# "vectorizer__use_idf": [True, False]
 		}
+		# ,
+		# {
+		# 	# "linear_svc__penalty": ["l2"],		# if l1, you can't use hinge
+		# 	"linear_svc__loss": ["hinge", "squared_hinge"],
+		# 	# "linear_svc__dual": [True],	# if false, you can't use l2 or hinge
+		# 	"linear_svc__tol": [1e-4, 1e-5],
+		# 	"linear_svc__C":[0.1, 1, 10],
+		# 	# "vectorizer__stop_words": [None, stop_words.ENGLISH_STOP_WORDS]
+		# 	"vectorizer__ngram_range": [(1,1), (1,2), (1,3)],
+		# 	"vectorizer__max_df": [0.9, 1.0]
+		# 	# "vectorizer__use_idf": [True, False]
+		# 	# "linear_svc__multi_class": ["ovr", "crammer_singer"]
+		# }
 	]
 
 
-	scores = ["precision", "recall"]
+	scores = ["precision_micro", "recall_micro", "f1_micro", "accuracy", None]
 
 	for score in scores:
 		print("# Tuning hyper-parameters for {0}".format(score))
 		print()
 
-		grd = GridSearchCV(linear_svc_pipeline, param_grid=linear_svc_params, cv=k_fold, scoring="{0}_macro".format(score))
+		grd = GridSearchCV(linear_svc_pipeline, param_grid=linear_svc_params, cv=k_fold, scoring=score)
 		grd.fit(x_train, y_train)
 
 		print("\nBest score and parameters set found on development set:")
@@ -68,7 +105,7 @@ def train(x_train, y_train, x_test, y_test):
 		print()
 		print()
 
-	create_model(x_train, y_train, x_test, y_test)
+	#create_model(x_train, y_train, x_test, y_test)
 
 
 def create_model(x_train, y_train, x_test, y_test):
@@ -76,10 +113,10 @@ def create_model(x_train, y_train, x_test, y_test):
 
 	print("\nCREATING FINAL MODEL...")
 
-	vectorizer = TfidfVectorizer(ngram_range=(1,2))
+	vectorizer = TfidfVectorizer(ngram_range=(1,3), max_df=0.9)
 	print("vectorizer params:", vectorizer.get_params())
 
-	linear_svc = svm.LinearSVC(C=1.0, loss="hinge", tol=0.0001)
+	linear_svc = svm.LinearSVC(C=1.0, dual=True, loss="hinge", penalty="l2")
 	print("linear svc params", linear_svc.get_params())
 
 	linear_svc_pipeline = Pipeline(steps=[("vectorizer", vectorizer), ("linear_svc", linear_svc)])
@@ -101,6 +138,10 @@ def create_model(x_train, y_train, x_test, y_test):
 	print("The model is trained on the full development set.")
 	print("The scores are computed on the full evaluation set.")
 	y_true, y_pred = y_test, model.predict(x_test)
+
+	print(model.score(x_test, y_test))
+	print(model.get_params)
+
 	print(classification_report(y_true, y_pred, target_names=["negative", "neutral", "positive"]))
 	print()
 

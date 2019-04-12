@@ -19,6 +19,7 @@ def split_data(tweets_df):
 	tweets = tweets_df["text"].tolist()
 	polarities = tweets_df["polarity"].tolist()
 	x_train, x_test, y_train, y_test = train_test_split(tweets, polarities, test_size=0.2, random_state=1)
+	# x_train, x_test, y_train, y_test = train_test_split(tweets, polarities, test_size=0.2)
 	return x_train, x_test, y_train, y_test
 
 
@@ -29,6 +30,8 @@ def main():
 	# randomly remove 92.5% of neutral tweets and 31% of negative tweets
 	tweets_df = tweets_df.drop(tweets_df.query('polarity == 0').sample(frac=0.925, random_state=1).index)
 	tweets_df = tweets_df.drop(tweets_df.query('polarity == -1').sample(frac=0.31, random_state=1).index)
+	# tweets_df = tweets_df.drop(tweets_df.query('polarity == 0').sample(frac=0.925).index)
+	# tweets_df = tweets_df.drop(tweets_df.query('polarity == -1').sample(frac=0.31).index)
 
 	# reindex dataframe and remove old index column
 	tweets_df.reset_index(inplace=True)
@@ -45,7 +48,8 @@ def main():
 	print("\nNumber of training data:", len(x_train),"\nNumber of testing data:", len(x_test))
 
 	# create a classifier and train it using the dataset
-	trainer.train(x_train, y_train, x_test, y_test)
+	# trainer.train(x_train, y_train, x_test, y_test)
+	trainer.create_model(x_train, y_train, x_test, y_test)
 
 
 if __name__ == '__main__':
