@@ -9,11 +9,6 @@ import preprocessor
 import trainer
 
 
-def debug(some_str):
-	#print(some_str)
-	pass
-
-
 def split_data(tweets_df):
 	""" Splits the data set into training, testing, and validation data sets. """
 	tweets = tweets_df["text"].tolist()
@@ -48,8 +43,6 @@ def main():
 	print("\nNumber of training data:", len(x_train),"\nNumber of testing data:", len(x_test))
 
 	# create a classifier and train it using the dataset
-	# trainer.train(x_train, y_train, x_test, y_test)
-	# trainer.create_model(x_train, y_train, x_test, y_test)
 	trainer.analyze_model(x_train, y_train, x_test, y_test)
 
 

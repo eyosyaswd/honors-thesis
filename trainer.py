@@ -219,15 +219,3 @@ def plot_confusion_matrix(cm, classes,
     plt.xlabel('Predicted label')
     plt.tight_layout()
     plt.show()
-
-
-
-
-
-	# for x, prediction, y in zip(x_val, predictions, y_val):
-		# if prediction != y:
-			# print("Incorrect:", x, 'has been classified as', prediction, 'and should be ', y)
-		# else:
-		# if prediction == y:
-			# print(prediction)
-			# print("Correct:", x, "has been classified as", prediction, "and is correct!")
