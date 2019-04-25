@@ -17,3 +17,6 @@ __pycache__/
 # random extra files
 testing_preprocessing.csv
 tutorial.py
+
+# dataset
+data-set/
